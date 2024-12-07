@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apoline Universe</title>
+    <title>Apoline Universe - Dox Simulé</title>
     <style>
         body {
             margin: 0;
@@ -16,6 +16,7 @@
             justify-content: center;
             color: #fff;
             overflow: hidden;
+            text-align: center;
         }
         h1 {
             font-size: 3rem;
@@ -27,8 +28,22 @@
             margin: 10px 0;
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
         }
+        .info-box {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            max-width: 500px;
+            width: 100%;
+        }
+        .info-box p {
+            font-size: 1.1rem;
+            color: #ff0000;
+            margin: 5px 0;
+        }
         .button-container {
-            margin-top: 20px;
+            margin-top: 30px;
         }
         .btn {
             padding: 15px 30px;
@@ -59,15 +74,30 @@
             text-align: center;
             font-size: 0.9rem;
         }
+        .alert {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <h1>Bienvenue, Apoline !</h1>
-    <p>Découvre un univers magique (ou pas !) rien que pour toi.</p>
-    <div class="button-container">
-        <button class="btn" onclick="alert('Apoline, tu es géniale ! 😄')">Clique ici</button>
-        <button class="btn" onclick="alert('Oops... ça ne fait rien ! 😂')">Et là ?</button>
+    <h1>Bienvenue, Apoline !</h1>
+    <p>Tu as accès à une version spéciale... <span class="alert">Ne panique pas</span>, c’est juste une blague !</p>
+    
+    <div class="info-box">
+        <p><strong>Nom complet:</strong> Apoline Dupont</p>
+        <p><strong>Adresse IP:</strong> 192.168.0.1</p>
+        <p><strong>Localisation:</strong> Paris, France</p>
+        <p><strong>Numéro de téléphone:</strong> 06 12 34 56 78</p>
+        <p><strong>Email:</strong> apoline.dupont@exemple.com</p>
+        <p><strong>Réseaux sociaux:</strong> @ApolineOnTop</p>
     </div>
+
+    <div class="button-container">
+        <button class="btn" onclick="alert('Tu veux vraiment aller plus loin ? 😱')">Clique ici pour en savoir plus...</button>
+        <button class="btn" onclick="alert('Surprise ! Tout ça était une blague. 😜')">Pas si vite !</button>
+    </div>
+
     <footer>
         Créé avec 💖 pour t’embêter, Apoline. 😘
     </footer>
