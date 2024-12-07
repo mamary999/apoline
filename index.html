@@ -66,10 +66,46 @@
             text-align: center;
         }
         .image-container img {
-            max-width: 80%;
+            max-width: 100px;
             margin: 10px;
             border-radius: 8px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.1);
+        }
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            display: none;
+        }
+        .fullscreen img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .fullscreen .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 10px;
         }
         @keyframes glow {
             0% {
@@ -85,15 +121,11 @@
             text-align: center;
             font-size: 0.9rem;
         }
-        .alert {
-            color: red;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
     <h1>Bienvenue, Apoline !</h1>
-    <p>Tu as accès à une version spéciale... <span class="alert">Ne panique pas</span>, c’est juste une blague !</p>
+    <p>Tu as accès à une version spéciale... C’est juste une blague !</p>
     
     <div class="info-box">
         <p><strong>Nom complet:</strong> Apoline Dupont</p>
@@ -101,20 +133,20 @@
         <p><strong>Localisation:</strong> Paris, France</p>
         <p><strong>Numéro de téléphone:</strong> 06 12 34 56 78</p>
         <p><strong>Email:</strong> apoline.dupont@exemple.com</p>
-        <p><strong>Réseaux sociaux:</strong> @ApolineOnTop</p>
     </div>
 
     <div class="button-container">
-        <button class="btn" onclick="alert('Tu veux vraiment aller plus loin ? 😱')">Clique ici pour en savoir plus...</button>
-        <button class="btn" onclick="alert('Surprise ! Tout ça était une blague. 😜')">Pas si vite !</button>
-        <!-- Nouveau bouton pour afficher des images -->
         <button class="btn" onclick="toggleImages()">Voir des images</button>
     </div>
 
-    <!-- Section d'images cachées -->
     <div class="image-container" id="imageContainer">
-        <img src="https://raw.githubusercontent.com/mamary999/apoline/main/467425432_8995207860500475_8329197751546416381_n.jpg" alt="Image 1">
-        <img src="https://raw.githubusercontent.com/mamary999/apoline/main/464357570_1956273314853312_1440605614226058586_n.jpg" alt="Image 2">
+        <img src="https://raw.githubusercontent.com/mamary999/apoline/main/467425432_8995207860500475_8329197751546416381_n.jpg" alt="Image 1" onclick="openFullscreen(this)">
+        <img src="https://raw.githubusercontent.com/mamary999/apoline/main/464357570_1956273314853312_1440605614226058586_n.jpg" alt="Image 2" onclick="openFullscreen(this)">
+    </div>
+
+    <div class="fullscreen" id="fullscreenContainer">
+        <span class="close" onclick="closeFullscreen()">×</span>
+        <img src="" alt="Fullscreen">
     </div>
 
     <footer>
@@ -125,10 +157,22 @@
         function toggleImages() {
             const imageContainer = document.getElementById('imageContainer');
             if (imageContainer.style.display === "none" || imageContainer.style.display === "") {
-                imageContainer.style.display = "block";
+                imageContainer.style.display = "flex";
             } else {
                 imageContainer.style.display = "none";
             }
+        }
+
+        function openFullscreen(image) {
+            const fullscreen = document.getElementById('fullscreenContainer');
+            const fullscreenImage = fullscreen.querySelector('img');
+            fullscreenImage.src = image.src;
+            fullscreen.style.display = "flex";
+        }
+
+        function closeFullscreen() {
+            const fullscreen = document.getElementById('fullscreenContainer');
+            fullscreen.style.display = "none";
         }
     </script>
 </body>
