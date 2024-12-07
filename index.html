@@ -60,6 +60,17 @@
             transform: scale(1.1);
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
         }
+        .image-container {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 80%;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
         @keyframes glow {
             0% {
                 text-shadow: 2px 2px 10px #ff9a9e, 0px 0px 20px #fad0c4;
@@ -96,10 +107,30 @@
     <div class="button-container">
         <button class="btn" onclick="alert('Tu veux vraiment aller plus loin ? 😱')">Clique ici pour en savoir plus...</button>
         <button class="btn" onclick="alert('Surprise ! Tout ça était une blague. 😜')">Pas si vite !</button>
+        <!-- Nouveau bouton pour afficher des images -->
+        <button class="btn" onclick="toggleImages()">Voir des images</button>
+    </div>
+
+    <!-- Section d'images cachées -->
+    <div class="image-container" id="imageContainer">
+        <img src="https://raw.githubusercontent.com/mamary999/World-Sond/main/ton-image1.jpg" alt="Image 1">
+        <img src="https://raw.githubusercontent.com/mamary999/World-Sond/main/ton-image2.jpg" alt="Image 2">
+        <img src="https://raw.githubusercontent.com/mamary999/World-Sond/main/ton-image3.jpg" alt="Image 3">
     </div>
 
     <footer>
         Créé avec 💖 pour t’embêter, Apoline. 😘
     </footer>
+
+    <script>
+        function toggleImages() {
+            const imageContainer = document.getElementById('imageContainer');
+            if (imageContainer.style.display === "none" || imageContainer.style.display === "") {
+                imageContainer.style.display = "block";
+            } else {
+                imageContainer.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
